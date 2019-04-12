@@ -62,3 +62,6 @@ C:\Users\omar_\OneDrive\Escritorio\Gorillas-master\GorillasClon\GorillasClon\obj
 C:\Users\omar_\OneDrive\Escritorio\Gorillas-master\GorillasClon\GorillasClon\obj\Debug\GorillasClon.csproj.CoreCompileInputs.cache
 C:\Users\omar_\OneDrive\Escritorio\Gorillas-master\GorillasClon\GorillasClon\obj\Debug\GorillasClon.exe
 C:\Users\omar_\OneDrive\Escritorio\Gorillas-master\GorillasClon\GorillasClon\obj\Debug\GorillasClon.pdb
+C:\Users\a_k_n\Documents\Programas\Gorillas\GorillasClon\GorillasClon\obj\Debug\GorillasClon.ayuda.resources
+C:\Users\a_k_n\Documents\Programas\Gorillas\GorillasClon\GorillasClon\obj\Debug\GorillasClon.PantallaInicio.resources
+C:\Users\a_k_n\Documents\Programas\Gorillas\GorillasClon\GorillasClon\obj\Debug\GorillasClon.records.resources

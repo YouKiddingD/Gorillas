@@ -26,27 +26,22 @@ namespace GorillasClon
         {
             angulo = angulo / 180 * Math.PI;
             List<double> posiciones = new List<double>();
-
-            double VelX = Math.Cos(angulo) * velocidad;
-            double VelY = Math.Sin(angulo) * velocidad;
-            double tFin = (2 * velocidad * Math.Sin(angulo)) / 9.8;
+            double tFin = ((2 * velocidad * Math.Sin(angulo)) / 9.8);
 
             double actualX = x, actualY = y;
-            for (double tAct = 0; tAct < tFin+2; tAct += .1)
+            for (double tAct = 0; tAct < tFin+2; tAct += 0.1)
             {
-                VelY = velocidad * Math.Sin(angulo) - 9.8 * tAct;
-                //velocidad = Math.Sqrt(Math.Pow(VelX, 2) + Math.Pow(VelY, 2));
-                actualX = velocidad * tAct * Math.Cos(angulo);
-                actualY = velocidad * tAct * Math.Sin(angulo) - (0.5 * (9.8 * Math.Pow(tAct, 2)));
+                actualX = (velocidad * tAct * Math.Cos(angulo))*10;
+                actualY = (velocidad * tAct * Math.Sin(angulo) - ((9.8 * Math.Pow(tAct, 2)/2)))*20;
                 if (sentido)
                 {
-                    posiciones.Add(actualX * 10);
+                    posiciones.Add(actualX);
                 }
                 else
                 {
-                    posiciones.Add(x-actualX*10);
+                    posiciones.Add(x-actualX);
                 }
-                posiciones.Add(y - (actualY * 10));
+                posiciones.Add(y - (actualY));
             }
             return posiciones;
         }

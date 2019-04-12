@@ -26,7 +26,7 @@ namespace GorillasClon
         List<double> animacion = new List<double>();
         int numRondas, round = 1;
         int puntos = 0;
-       
+
         public Form1(Personaje p1, Personaje p2, int numRondas)
         {
             InitializeComponent();
@@ -47,9 +47,9 @@ namespace GorillasClon
                 ed.Add(new Edificio(xAct, 562));
                 xAct += ed.Last<Edificio>().width;
             }
-            per1.x = (ed[0].coordx+ ed[0].width/ 2)-per1.width;
+            per1.x = (ed[0].coordx + ed[0].width / 2)-(per1.width/2);
             per1.y = ed[0].coordy - ed[0].height - per1.height + 12;
-            per2.x = (ed[4].coordx + ed[4].width/2);
+            per2.x = (ed[4].coordx + ed[4].width / 2) - (per2.width / 2);
             per2.y = ed[4].coordy - ed[4].height - per2.height + 12;
         }
 
@@ -66,7 +66,7 @@ namespace GorillasClon
             {
                 e.Graphics.DrawImage(pr.imgDir, (float)animacion[0], (float)animacion[1]);
                 checarColision((float)animacion[0], (float)animacion[1]);
-                if(animacion.Count!=0)
+                if (animacion.Count != 0)
                     animacion.RemoveRange(0, 2);
                 Thread.Sleep(50);
                 pictureBox1.Invalidate();
@@ -95,20 +95,42 @@ namespace GorillasClon
         {
             if (sentido)
             {
-                if ((x > per1.x && x < per1.x + per1.width) && (y > per1.y && y < per1.y + per1.height))
+                for (float x1 = x; x1 < x + 20; x1++)
                 {
-                    MessageBox.Show("Gana el 2");
-                    reiniciarJuego();
-                    per2.rondas = puntos+1;
+                    if ((x1 > per1.x && x1 < (per1.x + per1.width)))
+                    {
+                        for (float y1 = y; y1 < y + 20; y1++)
+                        {
+                            if ((y1 > per1.y && y1 < (per1.y + per1.height)))
+                            {
+                                MessageBox.Show("Gana el 2");
+                                reiniciarJuego();
+                                per2.rondas = puntos + 1;
+                                break;
+                            }
+                        }
+                        break;
+                    }
                 }
             }
             else
             {
-                if ((x > per2.x && x < per2.x + per2.width) && (y > per2.y && y < per2.y + per2.height))
+                for (float x1 = x; x1 < x + 40; x1++)
                 {
-                    MessageBox.Show("Gana el 1");
-                    reiniciarJuego();
-                    per1.rondas = puntos+1;
+                    if ((x1 > per2.x && x1 < (per2.x + per2.width)))
+                    {
+                        for (float y1 = y; y1 < y + 40; y1++)
+                        {
+                            if ((y1 > per2.y && y1 < (per2.y + per2.height)))
+                            {
+                                MessageBox.Show("Gana el 1");
+                                reiniciarJuego();
+                                per1.rondas = puntos + 1;
+                                break;
+                            }
+                        }
+                        break;
+                    }
                 }
             }
             if (per2.rondas > per1.rondas)
